@@ -1,6 +1,7 @@
 import random
 import streamlit as st
 
+
 def get_range_for_difficulty(difficulty: str):
     if difficulty == "Easy":
         return 1, 20
@@ -35,16 +36,16 @@ def check_guess(guess, secret):
 
     try:
         if guess > secret:
-            return "Too High", "📈 Go HIGHER!"
+            return "Too High", "📉 Go LOWER!"
         else:
-            return "Too Low", "📉 Go LOWER!"
+            return "Too Low", "📈 Go HIGHER!"
     except TypeError:
         g = str(guess)
         if g == secret:
             return "Win", "🎉 Correct!"
         if g > secret:
-            return "Too High", "📈 Go HIGHER!"
-        return "Too Low", "📉 Go LOWER!"
+            return "Too High", "📉 Go LOWER!"
+        return "Too Low", "📈 Go HIGHER!"
 
 
 def update_score(current_score: int, outcome: str, attempt_number: int):
@@ -63,6 +64,7 @@ def update_score(current_score: int, outcome: str, attempt_number: int):
         return current_score - 5
 
     return current_score
+
 
 st.set_page_config(page_title="Glitchy Guesser", page_icon="🎮")
 
@@ -118,10 +120,7 @@ with st.expander("Developer Debug Info"):
     st.write("Difficulty:", difficulty)
     st.write("History:", st.session_state.history)
 
-raw_guess = st.text_input(
-    "Enter your guess:",
-    key=f"guess_input_{difficulty}"
-)
+raw_guess = st.text_input("Enter your guess:", key=f"guess_input_{difficulty}")
 
 col1, col2, col3 = st.columns(3)
 with col1:
