@@ -27,6 +27,12 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 - Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
 - Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
 
+**I used the Opencode CLI**
+
+**An example where an AI suggestion was correct was when I refactored the functions from app.py into logic_utils.py and verfied if the syntax and structure of the functions from app.py was the same as in logic_utils.py**
+
+**An example where an AI suggestion was wrong was when I asked where the logic of checking the guess was because the guess checking logic was flawed, it hallucinated about a parsing error and it stated that it occured in these certain lines. I checked those lines of code but they weren't similar to that the AI suggested**
+
 ---
 
 ## 3. Debugging and testing your fixes
@@ -35,6 +41,12 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 - Describe at least one test you ran (manual or using pytest)  
   and what it showed you about your code.
 - Did AI help you design or understand any tests? How?
+
+**I decided whether a bug was fixed by verifying it on pytest and on the app itself**
+
+**A test I ran was the guess checking logic, where if I guess a number less than the target, it should say HIGHER, and vice versa in the app. As for pytest it would either say PASSED or the type of error and what the actual result should be**
+
+**AI helped me generate multiple pytest test cases and it added comments stating "if x, then y"**
 
 ---
 
