@@ -33,7 +33,9 @@ if "secret" not in st.session_state:
     st.session_state.secret = random.randint(low, high)
 
 if "attempts" not in st.session_state:
-    st.session_state.attempts = 1
+    # FIX: made sure that the number of attempts start at 0 when a new game starts
+    # to accurately match attempts left and attempts allowed on a new game depending on difficulty
+    st.session_state.attempts = 0
 
 if "score" not in st.session_state:
     st.session_state.score = 0
@@ -86,7 +88,7 @@ if st.session_state.status != "playing":
 
 if submit:
     st.session_state.attempts += 1
-
+    
     ok, guess_int, err = parse_guess(raw_guess)
 
     if not ok:
@@ -119,7 +121,9 @@ if submit:
                 f"Final score: {st.session_state.score}"
             )
         else:
-            if st.session_state.attempts >= attempt_limit:
+            # FIX: changed to greater than sign to accurately indicate the user ran out of attempts
+            # when they used up all their attempts and have 0 attempts left
+            if st.session_state.attempts > attempt_limit:
                 st.session_state.status = "lost"
                 st.error(
                     f"Out of attempts! "
