@@ -56,6 +56,12 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
 - What change did you make that finally gave the game a stable secret number?
 
+**there was no place to track the secret number and to temporarily store it for a particular session so it kept regenerating a randomly new number everytime we submitted our guess**
+
+**for reruns, you load and run the entire app again. for session state, you have a temporary data that you "watch over" and it's still there unless you leave it alone.**
+
+**i stored the secret number on the first run/load which was persisted throughout the whole game session unless we created a new game where another random number is chosen to be persistently stored**
+
 ---
 
 ## 5. Looking ahead: your developer habits
@@ -64,3 +70,10 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
   - This could be a testing habit, a prompting strategy, or a way you used Git.
 - What is one thing you would do differently next time you work with AI on a coding task?
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+
+**Habits I want to do from now on is to ALWAYS make test cases and add comments on code describing what I fixed**
+
+**The thing I would do differently next time is to tell AI the problem in detail and what logic is causing that problem, then I would tell AI what the actual outcome or result is supposed to be**
+
+**This project helped me realize that I need to be cautious with what code it's generating since I see that it's generating random code I didn't ask for. I believe that AI generated code is flawed sometimes.**
+
